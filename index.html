@@ -1,10 +1,6 @@
-<!doctype html>
-<html lang="pt-BR">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="description" content="Vignon Fidele Adanvo — pesquisador em comunicações por satélite e engenheiro de IA.">
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
 <title>Vignon Fidele Adanvo</title>
+<meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
 <style>
@@ -50,13 +46,12 @@ a{color:var(--cyan)}
 .hero{position:relative;overflow:hidden;border-bottom:1px solid var(--line)}
 .hero::after{content:"";position:absolute;inset:0;background:radial-gradient(60% 70% at 78% 55%,var(--glow),transparent 70%);pointer-events:none}
 .hero canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
-.hero .wrap{position:relative;z-index:1;padding-block:96px 80px;display:grid;gap:24px}
+.hero .wrap{position:relative;z-index:1;padding-block:88px 72px;display:grid;gap:20px}
 .status{display:inline-flex;align-items:center;gap:10px;font-family:var(--mono);font-size:12.5px;color:var(--muted);padding:6px 12px;border:1px solid var(--line);border-radius:999px;background:rgba(13,20,36,.7);width:max-content;max-width:100%}
 .status b{color:var(--amber);font-weight:500}
 .status i{width:7px;height:7px;border-radius:50%;background:#3DDC84;box-shadow:0 0 10px #3DDC84;animation:pulse 2s infinite}
 @keyframes pulse{50%{opacity:.35}}
-.hero h1{font-size:clamp(44px,8.4vw,104px);font-weight:800;letter-spacing:-.03em;max-width:10.5ch}
-.hero h1 span{color:var(--cyan);text-shadow:0 0 40px rgba(79,216,232,.35)}
+.hero h1{font-size:clamp(36px,5.6vw,64px);font-weight:700;letter-spacing:-.02em;max-width:14ch;color:var(--ink)}
 .lede{font-size:clamp(17px,2vw,21px);color:#C5CEE0;max-width:46ch}
 .links{display:flex;flex-wrap:wrap;gap:10px}
 .btn{display:inline-flex;align-items:center;gap:8px;padding:11px 16px;border-radius:8px;font-family:var(--mono);font-size:14px;text-decoration:none;color:var(--ink);background:rgba(17,26,46,.8);border:1px solid var(--line);transition:border-color .2s,transform .2s,box-shadow .2s}
@@ -93,6 +88,17 @@ section{padding-block:96px;border-bottom:1px solid var(--line)}
 .param span:last-child{color:var(--ink);text-align:right}
 @media (max-width:860px){.research{grid-template-columns:1fr}}
 
+/* Publicações */
+.pubs{display:grid;gap:14px}
+.pub{display:grid;grid-template-columns:72px minmax(0,1fr) auto;gap:20px;align-items:start;padding:22px 26px}
+.pub .y{font-family:var(--mono);font-size:14px;color:var(--amber);padding-top:3px;font-variant-numeric:tabular-nums}
+.pub h3{font-family:var(--body);font-size:17.5px;font-weight:600;line-height:1.4;margin-bottom:6px}
+.pub .au{color:var(--muted);font-size:14.5px}
+.pub .au b{color:var(--ink);font-weight:600}
+.pub .ve{font-family:var(--mono);font-size:12.5px;color:var(--cyan);margin-top:8px}
+.pub .kind{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);border:1px solid var(--line);border-radius:5px;padding:4px 8px;white-space:nowrap}
+.more{margin-top:22px}
+@media (max-width:640px){.pub{grid-template-columns:1fr;gap:6px;padding:20px}.pub .kind{justify-self:start;order:-1}}
 /* Projetos */
 .projects{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
 .proj{display:grid;gap:14px;align-content:start}
@@ -154,8 +160,6 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
 @keyframes rise{from{transform:translateY(14px);opacity:.001}to{transform:none;opacity:1}}
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}html{scroll-behavior:auto}}
 </style>
-</head>
-<body>
 
 <nav class="nav" aria-label="Seções">
   <div class="wrap">
@@ -163,6 +167,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
     <div class="right">
     <ul>
       <li><a href="#pesquisa" data-i="nav.res">Pesquisa</a></li>
+      <li><a href="#publicacoes" data-i="nav.pub">Publicações</a></li>
       <li><a href="#projetos" data-i="nav.proj">Projetos</a></li>
       <li><a href="#engenharia" data-i="nav.eng">Engenharia</a></li>
       <li><a href="#trajetoria" data-i="nav.tl">Trajetória</a></li>
@@ -181,8 +186,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
 <header class="hero" id="topo">
   <canvas id="orbit" aria-hidden="true"></canvas>
   <div class="wrap">
-    <div class="status rise"><i></i>Dr. · <b>LEO</b> · DtS-IoT · IA aplicada</div>
-    <h1 class="rise">Vignon Fidele <span>Adanvo</span></h1>
+    <h1 class="rise">Vignon Fidele Adanvo</h1>
     <p class="lede rise" data-i="hero.lede">Pesquisador em comunicações por satélite e engenheiro de IA. Trabalho entre o modelo matemático e o sistema em produção.</p>
     <div class="links rise">
       <a class="btn primary" href="https://orcid.org/0000-0002-9266-6824" target="_blank" rel="noopener">ORCID <small>0000-0002-9266-6824</small></a>
@@ -193,7 +197,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
       <div><b>2026</b><span data-i="stat.phd">Doutorado</span></div>
       <div><b>2022–</b><span data-i="stat.ind">IA na indústria</span></div>
       <div><b>0,949</b><span>F1 · UAV</span></div>
-      <div><b>3</b><span data-i="stat.lang">Idiomas</span></div>
+      <div><b>5</b><span data-i="stat.pub">Artigos em periódicos</span></div>
     </div>
   </div>
 </header>
@@ -224,6 +228,25 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
           <div class="param"><span data-i="par.7">Revisão por pares</span><span data-i="par.7v">sem fio · 3GPP</span></div>
         </div>
       </div>
+    </div>
+  </section>
+
+  <section id="publicacoes">
+    <div class="wrap">
+      <div class="head">
+        <div class="label" data-i="pub.label">// Publicações</div>
+        <h2 data-i="pub.h2">Artigos publicados</h2>
+        <p data-i="pub.sub">Cinco artigos em periódicos, três deles em revistas IEEE, e um trabalho em congresso.</p>
+      </div>
+      <div class="pubs">
+        <article class="panel pub"><div class="y">2026</div><div><h3>A Multiobjective Channel Load Optimization Framework for Multisatellite Direct-to-Satellite IoT Networks</h3><p class="au"><b>V. F. Adanvo</b>, S. Mafra, S. Montejo-Sánchez, R. D. Souza</p><p class="ve">IEEE Transactions on Aerospace and Electronic Systems · v. 62, pp. 12789–12803</p></div><span class="kind" data-i="pub.j">Periódico</span></article>
+        <article class="panel pub"><div class="y">2026</div><div><h3>Analytical Modeling of Slotted Aloha-Based Direct-to-Satellite-IoT Sensor Networks Over Nakagami-m Fading Channels</h3><p class="au"><b>V. F. Adanvo</b>, S. Mafra, S. Montejo-Sánchez, F. A. Tondo, R. D. Souza</p><p class="ve">IEEE Sensors Journal · v. 26, pp. 3264–3277</p></div><span class="kind" data-i="pub.j">Periódico</span></article>
+        <article class="panel pub"><div class="y">2025</div><div><h3>Improving Efficiency and Reliability in Information Offloading for LEO Satellite Networks by Intersatellite Communication Techniques</h3><p class="au"><b>V. F. Adanvo</b>, S. Mafra, S. Montejo-Sánchez, F. A. Tondo, R. D. Souza</p><p class="ve">IEEE Transactions on Aerospace and Electronic Systems · v. 61, pp. 1336–1352</p></div><span class="kind" data-i="pub.j">Periódico</span></article>
+        <article class="panel pub"><div class="y">2024</div><div><h3>A Survey on the Impact of Intelligent Surfaces in the Terahertz Communication Channel Models</h3><p class="au">J. D. S. e Silva, J. A. P. Ribeiro, <b>V. F. Adanvo</b>, S. B. Mafra, L. L. Mendes, Y. Li, R. A. A. de Souza</p><p class="ve">Sensors (MDPI) · v. 24</p></div><span class="kind" data-i="pub.j">Periódico</span></article>
+        <article class="panel pub"><div class="y">2022</div><div><h3>Buffer-Aided Relaying Strategies for Two-Way Wireless Networks</h3><p class="au"><b>V. F. Adanvo</b>, S. Mafra, S. Montejo-Sánchez, E. M. G. Fernández, R. D. Souza</p><p class="ve">Sustainability (MDPI) · v. 14, 13829</p></div><span class="kind" data-i="pub.j">Periódico</span></article>
+        <article class="panel pub"><div class="y">2020</div><div><h3>Outage Performance of Buffer-State-Based Relay Selection in Underlay CR-NOMA Networks</h3><p class="au"><b>V. F. Adanvo</b>, S. Mafra, S. Montejo-Sánchez</p><p class="ve">XXXVIII Simpósio Brasileiro de Telecomunicações e Processamento de Sinais (SBrT) · Florianópolis</p></div><span class="kind" data-i="pub.c">Congresso</span></article>
+      </div>
+      <div class="more"><a class="btn" href="https://scholar.google.com/citations?hl=en&amp;user=TYPvBlkAAAAJ" target="_blank" rel="noopener"><span data-i="pub.all">Ver citações no Google Scholar</span> <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 11 11 5M6 5h5v5"/></svg></a></div>
     </div>
   </section>
 
@@ -312,10 +335,10 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
         <h2 data-i="nav.tl">Trajetória</h2>
       </div>
       <div class="timeline">
-        <div class="panel tl"><div class="yr">2026</div><div><h3 data-i="tl.1h">Doutorado · Inatel</h3><p data-i="tl.1p">Comunicações por satélite, DtS-IoT, constelações LEO e otimização multiobjetivo.</p></div></div>
+        <div class="panel tl"><div class="yr">2022 – 2026</div><div><h3 data-i="tl.1h">Doutorado · Inatel</h3><p data-i="tl.1p">Eficiência energética e confiabilidade em IoT via satélites LEO com técnicas ALOHA. Bolsista FAPEMIG.</p></div></div>
         <div class="panel tl"><div class="yr">2022 –</div><div><h3>Data Scientist / AI Engineer · Blueshift</h3><p data-i="tl.2p">Consultoria em IA e automação sobre GCP e Azure.</p></div></div>
-        <div class="panel tl"><div class="yr">2021</div><div><h3 data-i="tl.3h">Mestrado · Inatel</h3><p data-i="tl.3p">Comunicação cooperativa, rádio cognitivo, NOMA, retransmissores com buffer e probabilidade de interrupção em redes B5G.</p></div></div>
-        <div class="panel tl"><div class="yr" data-i="tl.4y">Graduação</div><div><h3 data-i="tl.4h">Engenharia em Telecomunicações e Eletrônica · ISPJAE, Cuba</h3><p>Instituto Superior Politécnico José Antonio Echeverría, Havana.</p></div></div>
+        <div class="panel tl"><div class="yr">2019 – 2021</div><div><h3 data-i="tl.3h">Mestrado · Inatel</h3><p data-i="tl.3p">Comunicação cooperativa, rádio cognitivo, NOMA, retransmissores com buffer e probabilidade de interrupção em redes B5G. Bolsista CAPES.</p></div></div>
+        <div class="panel tl"><div class="yr">2012 – 2017</div><div><h3 data-i="tl.4h">Engenharia em Telecomunicações e Eletrônica · ISPJAE, Cuba</h3><p data-i="tl.4p">Instituto Superior Politécnico José Antonio Echeverría (CUJAE), Havana. Projeto final: estação terrena para nanossatélites baseada em SDR.</p></div></div>
       </div>
     </div>
   </section>
@@ -329,7 +352,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
       <div class="stack">
         <div class="panel"><h3 data-i="st.cloud">Nuvem</h3><div class="tags"><span class="tag">GCP</span><span class="tag">Cloud Run</span><span class="tag">Cloud Functions</span><span class="tag">Pub/Sub</span><span class="tag">Azure</span><span class="tag">Vertex AI</span></div></div>
         <div class="panel"><h3>IA / ML</h3><div class="tags"><span class="tag">scikit-learn</span><span class="tag">RAG</span><span class="tag">Azure OpenAI</span><span class="tag">Gemini</span><span class="tag">Dialogflow CX</span></div></div>
-        <div class="panel"><h3 data-i="nav.res">Pesquisa</h3><div class="tags"><span class="tag">Python</span><span class="tag">Jupyter</span><span class="tag" data-i="st.opt">Otimização numérica</span><span class="tag">LaTeX</span></div></div>
+        <div class="panel"><h3 data-i="nav.res">Pesquisa</h3><div class="tags"><span class="tag">MATLAB</span><span class="tag">Simulink</span><span class="tag">Python</span><span class="tag">Jupyter</span><span class="tag" data-i="st.opt">Otimização numérica</span><span class="tag">LaTeX</span></div></div>
         <div class="panel"><h3 data-i="st.cert">Certificações</h3><div class="tags"><span class="tag">Microsoft Azure</span><span class="tag">Power Platform</span><span class="tag">Scrum</span></div></div>
       </div>
     </div>
@@ -408,7 +431,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
 // Idiomas
 (function(){
   const T={
-  en:{"nav.res":"Research","nav.proj":"Projects","nav.eng":"Engineering","nav.tl":"Background","nav.ct":"Contact",
+  en:{"nav.pub":"Publications","stat.pub":"Journal articles","pub.label":"// Publications","pub.h2":"Published articles","pub.sub":"Five journal articles, three of them in IEEE journals, and one conference paper.","pub.j":"Journal","pub.c":"Conference","pub.all":"See citations on Google Scholar","tl.1p":"Energy efficiency and reliability in IoT over LEO satellites with ALOHA techniques. FAPEMIG scholarship.","tl.3p":"Cooperative communication, cognitive radio, NOMA, buffer-aided relays and outage probability in B5G networks. CAPES scholarship.","tl.4p":"José Antonio Echeverría Higher Polytechnic Institute (CUJAE), Havana. Final project: SDR-based ground station for nanosatellites.","nav.res":"Research","nav.proj":"Projects","nav.eng":"Engineering","nav.tl":"Background","nav.ct":"Contact",
   "hero.lede":"Satellite communications researcher and AI engineer. I work between the mathematical model and the system in production.",
   "btn.lattes":"Lattes CV","stat.phd":"PhD","stat.ind":"AI in industry","stat.lang":"Languages",
   "res.label":"// Research","res.h2":"Direct-to-satellite IoT","res.sub":"How thousands of simple devices can talk directly to low Earth orbit satellites, under real channels and limited resources.",
@@ -423,10 +446,10 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
   "eng.label":"// Engineering","eng.h2":"AI in production","eng.sub":"Contact center automation and cloud AI solutions for enterprise clients.","eng.now":"2022 – present",
   "eng.h1":"Automated customer service","eng.h2b":"Production services","eng.h3":"Generative AI and data",
   "eng.li1":"Dialogflow CX agents integrated with CCaaS, Salesforce and ServiceNow","eng.li2":"Detection of abandoned calls and handoffs to human agents","eng.li3":"Ticket classification with Gemini in Virtual Agent","eng.li4":"Cloud Functions and Python services triggered by Pub/Sub","eng.li5":"Zero-downtime migrations with parallel Cloud Run services","eng.li6":"Containers in Artifact Registry and Streamlit apps","eng.li7":"RAG with Azure OpenAI and Vertex AI","eng.li8":"CI/CD with Azure DevOps","eng.li9":"Dashboards and apps in Power BI and Power Apps",
-  "tl.label":"// Education","tl.1h":"PhD · Inatel","tl.1p":"Satellite communications, DtS-IoT, LEO constellations and multi-objective optimization.","tl.2p":"AI and automation consulting on GCP and Azure.","tl.3h":"MSc · Inatel","tl.3p":"Cooperative communication, cognitive radio, NOMA, buffer-aided relays and outage probability in B5G networks.","tl.4y":"BSc","tl.4h":"Telecommunications and Electronics Engineering · ISPJAE, Cuba",
+  "tl.label":"// Education","tl.1h":"PhD · Inatel","tl.2p":"AI and automation consulting on GCP and Azure.","tl.3h":"MSc · Inatel","tl.4y":"BSc","tl.4h":"Telecommunications and Electronics Engineering · ISPJAE, Cuba",
   "st.label":"// Tools","st.h2":"Stack and certifications","st.cloud":"Cloud","st.cert":"Certifications","st.opt":"Numerical optimization",
   "ct.label":"// Contact","ct.h2":"Let's talk about research or applied AI","ct.p":"Publications and full CV on my academic profiles. Português · Français · Español."},
-  fr:{"nav.res":"Recherche","nav.proj":"Projets","nav.eng":"Ingénierie","nav.tl":"Parcours","nav.ct":"Contact",
+  fr:{"nav.pub":"Publications","stat.pub":"Articles de revue","pub.label":"// Publications","pub.h2":"Articles publiés","pub.sub":"Cinq articles de revue, dont trois dans des revues IEEE, et une communication en conférence.","pub.j":"Revue","pub.c":"Conférence","pub.all":"Voir les citations sur Google Scholar","tl.1p":"Efficacité énergétique et fiabilité de l'IoT par satellites LEO avec des techniques ALOHA. Boursier FAPEMIG.","tl.3p":"Communication coopérative, radio cognitive, NOMA, relais avec buffer et probabilité de coupure dans les réseaux B5G. Boursier CAPES.","tl.4p":"Institut supérieur polytechnique José Antonio Echeverría (CUJAE), La Havane. Projet de fin d'études : station terrienne pour nanosatellites basée sur SDR.","nav.res":"Recherche","nav.proj":"Projets","nav.eng":"Ingénierie","nav.tl":"Parcours","nav.ct":"Contact",
   "hero.lede":"Chercheur en communications par satellite et ingénieur en IA. Je travaille entre le modèle mathématique et le système en production.",
   "btn.lattes":"CV Lattes","stat.phd":"Doctorat","stat.ind":"IA en entreprise","stat.lang":"Langues",
   "res.label":"// Recherche","res.h2":"IoT directement vers le satellite","res.sub":"Comment des milliers d'objets simples peuvent communiquer directement avec des satellites en orbite basse, avec un canal réel et des ressources limitées.",
@@ -441,10 +464,10 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
   "eng.label":"// Ingénierie","eng.h2":"L'IA en production","eng.sub":"Automatisation de centres de contact et solutions d'IA dans le cloud pour des entreprises.","eng.now":"2022 – aujourd'hui",
   "eng.h1":"Service client automatisé","eng.h2b":"Services en production","eng.h3":"IA générative et données",
   "eng.li1":"Agents Dialogflow CX intégrés au CCaaS, à Salesforce et à ServiceNow","eng.li2":"Détection des appels abandonnés et des transferts vers un humain","eng.li3":"Classification des tickets avec Gemini dans le Virtual Agent","eng.li4":"Cloud Functions et services Python déclenchés par Pub/Sub","eng.li5":"Migrations sans interruption avec Cloud Run en parallèle","eng.li6":"Conteneurs dans Artifact Registry et applications Streamlit","eng.li7":"RAG avec Azure OpenAI et Vertex AI","eng.li8":"CI/CD avec Azure DevOps","eng.li9":"Tableaux de bord et applications Power BI et Power Apps",
-  "tl.label":"// Formation","tl.1h":"Doctorat · Inatel","tl.1p":"Communications par satellite, DtS-IoT, constellations LEO et optimisation multiobjectif.","tl.2p":"Conseil en IA et automatisation sur GCP et Azure.","tl.3h":"Master · Inatel","tl.3p":"Communication coopérative, radio cognitive, NOMA, relais avec buffer et probabilité de coupure dans les réseaux B5G.","tl.4y":"Licence","tl.4h":"Ingénierie en télécommunications et électronique · ISPJAE, Cuba",
+  "tl.label":"// Formation","tl.1h":"Doctorat · Inatel","tl.2p":"Conseil en IA et automatisation sur GCP et Azure.","tl.3h":"Master · Inatel","tl.4y":"Licence","tl.4h":"Ingénierie en télécommunications et électronique · ISPJAE, Cuba",
   "st.label":"// Outils","st.h2":"Stack et certifications","st.cloud":"Cloud","st.cert":"Certifications","st.opt":"Optimisation numérique",
   "ct.label":"// Contact","ct.h2":"Parlons de recherche ou d'IA appliquée","ct.p":"Publications et CV complet sur mes profils académiques. Português · Français · Español."},
-  es:{"nav.res":"Investigación","nav.proj":"Proyectos","nav.eng":"Ingeniería","nav.tl":"Trayectoria","nav.ct":"Contacto",
+  es:{"nav.pub":"Publicaciones","stat.pub":"Artículos en revistas","pub.label":"// Publicaciones","pub.h2":"Artículos publicados","pub.sub":"Cinco artículos en revistas, tres de ellos en revistas IEEE, y un trabajo en congreso.","pub.j":"Revista","pub.c":"Congreso","pub.all":"Ver citas en Google Scholar","tl.1p":"Eficiencia energética y confiabilidad en IoT mediante satélites LEO con técnicas ALOHA. Becario FAPEMIG.","tl.3p":"Comunicación cooperativa, radio cognitiva, NOMA, retransmisores con buffer y probabilidad de interrupción en redes B5G. Becario CAPES.","tl.4p":"Instituto Superior Politécnico José Antonio Echeverría (CUJAE), La Habana. Proyecto final: estación terrena para nanosatélites basada en SDR.","nav.res":"Investigación","nav.proj":"Proyectos","nav.eng":"Ingeniería","nav.tl":"Trayectoria","nav.ct":"Contacto",
   "hero.lede":"Investigador en comunicaciones satelitales e ingeniero de IA. Trabajo entre el modelo matemático y el sistema en producción.",
   "btn.lattes":"Currículo Lattes","stat.phd":"Doctorado","stat.ind":"IA en la industria","stat.lang":"Idiomas",
   "res.label":"// Investigación","res.h2":"IoT directo al satélite","res.sub":"Cómo miles de dispositivos simples pueden comunicarse directamente con satélites de órbita baja, con canal real y recursos limitados.",
@@ -459,7 +482,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
   "eng.label":"// Ingeniería","eng.h2":"IA en producción","eng.sub":"Automatización de centros de contacto y soluciones de IA en la nube para clientes corporativos.","eng.now":"2022 – actual",
   "eng.h1":"Atención automatizada","eng.h2b":"Servicios en producción","eng.h3":"IA generativa y datos",
   "eng.li1":"Agentes en Dialogflow CX integrados con CCaaS, Salesforce y ServiceNow","eng.li2":"Detección de llamadas abandonadas y de transferencias a un agente humano","eng.li3":"Clasificación de tickets con Gemini en el Virtual Agent","eng.li4":"Cloud Functions y servicios Python activados por Pub/Sub","eng.li5":"Migraciones sin interrupción con Cloud Run en paralelo","eng.li6":"Contenedores en Artifact Registry y apps en Streamlit","eng.li7":"RAG con Azure OpenAI y Vertex AI","eng.li8":"CI/CD con Azure DevOps","eng.li9":"Paneles y apps en Power BI y Power Apps",
-  "tl.label":"// Formación","tl.1h":"Doctorado · Inatel","tl.1p":"Comunicaciones satelitales, DtS-IoT, constelaciones LEO y optimización multiobjetivo.","tl.2p":"Consultoría en IA y automatización sobre GCP y Azure.","tl.3h":"Maestría · Inatel","tl.3p":"Comunicación cooperativa, radio cognitiva, NOMA, retransmisores con buffer y probabilidad de interrupción en redes B5G.","tl.4y":"Grado","tl.4h":"Ingeniería en Telecomunicaciones y Electrónica · ISPJAE, Cuba",
+  "tl.label":"// Formación","tl.1h":"Doctorado · Inatel","tl.2p":"Consultoría en IA y automatización sobre GCP y Azure.","tl.3h":"Maestría · Inatel","tl.4y":"Grado","tl.4h":"Ingeniería en Telecomunicaciones y Electrónica · ISPJAE, Cuba",
   "st.label":"// Herramientas","st.h2":"Stack y certificaciones","st.cloud":"Nube","st.cert":"Certificaciones","st.opt":"Optimización numérica",
   "ct.label":"// Contacto","ct.h2":"Hablemos de investigación o IA aplicada","ct.p":"Publicaciones y currículo completo en mis perfiles académicos. Português · Français · Español."}
   };
@@ -487,5 +510,5 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
   links.forEach(a=>{const s=document.querySelector(a.getAttribute('href'));if(s)io.observe(s)});
 })();
 </script>
-</body>
-</html>
+
+</body></html>
