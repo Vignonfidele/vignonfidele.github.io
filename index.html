@@ -3,7 +3,16 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="description" content="Vignon Fidele Adanvo — pesquisador em comunicações por satélite e engenheiro de IA.">
+<meta name="description" content="Vignon Fidele Adanvo — Doutor em Telecomunicações (Inatel). Pesquisa em comunicações por satélite, DtS-IoT e constelações LEO; engenheiro de IA aplicada.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://vignonfidele.github.io/">
+<meta property="og:title" content="Vignon Fidele Adanvo">
+<meta property="og:description" content="Doutor em Telecomunicações. Comunicações por satélite, DtS-IoT e IA aplicada.">
+<meta property="og:image" content="https://vignonfidele.github.io/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="foto.jpg">
 <title>Vignon Fidele Adanvo</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
@@ -38,13 +47,13 @@ a{color:var(--cyan)}
 .nav ul::-webkit-scrollbar{display:none}
 .nav ul a{display:block;padding:7px 12px;border-radius:6px;font-size:14px;color:var(--muted);text-decoration:none;white-space:nowrap;transition:color .2s,background .2s}
 .nav ul a:hover,.nav ul a.on{color:var(--ink);background:var(--panel-2)}
-@media (max-width:640px){.brand span{display:none}}
+
 .nav .right{display:flex;align-items:center;gap:12px;min-width:0}
 .lang{display:flex;flex:none;padding:3px;border:1px solid var(--line);border-radius:8px;background:var(--panel)}
 .lang button{font-family:var(--mono);font-size:12px;letter-spacing:.04em;color:var(--muted);background:none;border:0;padding:5px 8px;border-radius:5px;cursor:pointer}
 .lang button:hover{color:var(--ink)}
 .lang button[aria-pressed="true"]{background:var(--cyan);color:#04121A}
-@media (max-width:520px){.nav ul a{padding:7px 8px;font-size:13px}.lang button{padding:5px 6px}}
+@media (max-width:420px){.brand span{display:none}.lang button{padding:5px 6px}}
 
 /* HERO */
 .hero{position:relative;overflow:hidden;border-bottom:1px solid var(--line)}
@@ -161,6 +170,25 @@ section{padding-block:96px;border-bottom:1px solid var(--line)}
 footer{padding-block:36px;color:var(--muted);font-family:var(--mono);font-size:12.5px}
 footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
 
+/* Foto */
+.who{display:flex;align-items:center;gap:28px;flex-wrap:wrap}
+.avatar{width:132px;height:132px;border-radius:50%;object-fit:cover;flex:none;border:2px solid var(--cyan);box-shadow:0 0 0 6px rgba(79,216,232,.08),0 0 40px -6px rgba(79,216,232,.45)}
+@media (max-width:560px){.avatar{width:96px;height:96px}.who{gap:18px}}
+/* Menu móvel */
+.menu-btn{display:none;width:38px;height:38px;border-radius:8px;border:1px solid var(--line);background:var(--panel);color:var(--ink);cursor:pointer;place-items:center}
+.menu-btn svg{width:18px;height:18px}
+@media (max-width:820px){
+  .menu-btn{display:grid}
+  .nav ul{position:absolute;top:60px;left:0;right:0;flex-direction:column;gap:2px;padding:10px max(16px,env(safe-area-inset-left,0px)) 16px;background:var(--bg);border-bottom:1px solid var(--line);box-shadow:0 20px 40px rgba(0,0,0,.5);display:none}
+  .nav ul.open{display:flex}
+  .nav ul a{padding:12px 10px;font-size:15px}
+  .brand span{display:inline}
+}
+/* E-mail */
+.mail{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin-top:18px;font-family:var(--mono);font-size:15px}
+.mail code{user-select:all;color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:6px;padding:8px 12px}
+.copy{font-family:var(--mono);font-size:13px;color:var(--cyan);background:none;border:1px solid rgba(79,216,232,.35);border-radius:6px;padding:8px 12px;cursor:pointer}
+.copy:hover{background:rgba(79,216,232,.08)}
 /* Entrada da hero */
 .rise{animation:rise .8s cubic-bezier(.2,.7,.2,1) both}
 .rise:nth-child(2){animation-delay:.08s}.rise:nth-child(3){animation-delay:.16s}.rise:nth-child(4){animation-delay:.24s}.rise:nth-child(5){animation-delay:.32s}
@@ -174,7 +202,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
   <div class="wrap">
     <a class="brand" href="#topo"><i></i><span>vignon.adanvo</span></a>
     <div class="right">
-    <ul>
+    <ul id="menu">
       <li><a href="#pesquisa" data-i="nav.res">Pesquisa</a></li>
       <li><a href="#publicacoes" data-i="nav.pub">Publicações</a></li>
       <li><a href="#projetos" data-i="nav.proj">Projetos</a></li>
@@ -188,6 +216,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
       <button type="button" data-l="fr" aria-pressed="false">FR</button>
       <button type="button" data-l="es" aria-pressed="false">ES</button>
     </div>
+    <button class="menu-btn" type="button" aria-label="Menu" aria-expanded="false" aria-controls="menu"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 6h14M3 10h14M3 14h14"/></svg></button>
     </div>
   </div>
 </nav>
@@ -195,18 +224,19 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
 <header class="hero" id="topo">
   <canvas id="orbit" aria-hidden="true"></canvas>
   <div class="wrap">
-    <h1 class="rise">Vignon Fidele Adanvo</h1>
+    <div class="who rise"><img class="avatar" src="data:image/jpeg;base64,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" alt="Foto de Vignon Fidele Adanvo" width="132" height="132"><h1>Vignon Fidele Adanvo</h1></div>
     <p class="lede rise" data-i="hero.lede">Pesquisador em comunicações por satélite e engenheiro de IA. Trabalho entre o modelo matemático e o sistema em produção.</p>
     <div class="links rise">
       <a class="btn primary" href="https://orcid.org/0000-0002-9266-6824" target="_blank" rel="noopener">ORCID <small>0000-0002-9266-6824</small></a>
       <a class="btn" href="http://lattes.cnpq.br/3804103919709510" target="_blank" rel="noopener"><span data-i="btn.lattes">Currículo Lattes</span> <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 11 11 5M6 5h5v5"/></svg></a>
       <a class="btn" href="https://scholar.google.com/citations?hl=en&amp;user=TYPvBlkAAAAJ" target="_blank" rel="noopener">Google Scholar <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 11 11 5M6 5h5v5"/></svg></a>
+      <a class="btn" href="https://www.linkedin.com/in/vignonfideleadanvo/" target="_blank" rel="noopener"><svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M3.6 5.6h-2.4V14h2.4zM2.4 1.8a1.4 1.4 0 1 0 0 2.8 1.4 1.4 0 0 0 0-2.8zM14.8 9.3c0-2.2-1.2-3.9-3.4-3.9-1.1 0-1.9.6-2.2 1.2V5.6H6.8V14h2.4V9.8c0-1.1.2-2.2 1.6-2.2s1.5 1.3 1.5 2.3V14h2.5z"/></svg> LinkedIn</a>
     </div>
     <div class="stats rise" aria-label="Resumo">
       <div><b>2026</b><span data-i="stat.phd">Doutorado</span></div>
-      <div><b>2022–</b><span data-i="stat.ind">IA na indústria</span></div>
-      <div><b>0,949</b><span>F1 · UAV</span></div>
       <div><b>5</b><span data-i="stat.pub">Artigos em periódicos</span></div>
+      <div><b>3</b><span data-i="stat.ieee">Em revistas IEEE</span></div>
+      <div><b>4+</b><span data-i="stat.ai">Anos em IA aplicada</span></div>
     </div>
   </div>
 </header>
@@ -215,7 +245,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
   <section id="pesquisa">
     <div class="wrap">
       <div class="head">
-        <div class="label" data-i="res.label">// Pesquisa</div>
+        <div class="label" data-i="res.label">Pesquisa</div>
         <h2 data-i="res.h2">IoT direto ao satélite</h2>
         <p data-i="res.sub">Como milhares de dispositivos simples conseguem falar diretamente com satélites em órbita baixa, com canal real e recursos limitados.</p>
       </div>
@@ -243,7 +273,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
   <section id="publicacoes">
     <div class="wrap">
       <div class="head">
-        <div class="label" data-i="pub.label">// Publicações</div>
+        <div class="label" data-i="pub.label">Publicações</div>
         <h2 data-i="pub.h2">Artigos publicados</h2>
         <p data-i="pub.sub">Cinco artigos em periódicos, três deles em revistas IEEE, e um trabalho em congresso.</p>
       </div>
@@ -262,8 +292,8 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
   <section id="projetos">
     <div class="wrap">
       <div class="head">
-        <div class="label" data-i="proj.label">// Projetos</div>
-        <h2 data-i="proj.h2">Do notebook ao serviço</h2>
+        <div class="label" data-i="proj.label">Projetos</div>
+        <h2 data-i="proj.h2">Aprendizado de máquina aplicado</h2>
         <p data-i="proj.sub">Projetos de ML aplicados a aeroespaço e telemetria.</p>
       </div>
       <div class="projects">
@@ -300,7 +330,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
   <section id="engenharia">
     <div class="wrap">
       <div class="head">
-        <div class="label" data-i="eng.label">// Engenharia</div>
+        <div class="label" data-i="eng.label">Engenharia</div>
         <h2 data-i="eng.h2">IA em produção</h2>
         <p data-i="eng.sub">Automação de contact center e soluções de IA em nuvem para clientes corporativos.</p>
       </div>
@@ -340,7 +370,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
   <section id="trajetoria">
     <div class="wrap">
       <div class="head">
-        <div class="label" data-i="tl.label">// Formação</div>
+        <div class="label" data-i="tl.label">Formação</div>
         <h2 data-i="nav.tl">Trajetória</h2>
       </div>
       <div class="timeline">
@@ -355,7 +385,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
   <section id="stack">
     <div class="wrap">
       <div class="head">
-        <div class="label" data-i="st.label">// Ferramentas</div>
+        <div class="label" data-i="st.label">Ferramentas</div>
         <h2 data-i="st.h2">Stack e certificações</h2>
       </div>
       <div class="stack">
@@ -371,12 +401,14 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
     <div class="wrap">
       <div class="panel contact">
         <div>
-          <div class="label" data-i="ct.label">// Contato</div>
+          <div class="label" data-i="ct.label">Contato</div>
           <h2 style="margin-top:10px" data-i="ct.h2">Vamos conversar sobre pesquisa ou IA aplicada</h2>
-          <p data-i="ct.p">Publicações e currículo completo nos perfis acadêmicos. Português · Français · Español.</p>
+          <div class="mail"><a href="mailto:vfidelea@gmail.com"><code id="email">vfidelea@gmail.com</code></a><button class="copy" type="button" id="copy" data-i="ct.copy">Copiar e-mail</button></div>
+          <p data-i="ct.p" style="margin-top:14px">Publicações e currículo completo nos perfis acadêmicos. Atendo em português, français e español.</p>
         </div>
         <div class="links">
-          <a class="btn primary" href="https://orcid.org/0000-0002-9266-6824" target="_blank" rel="noopener">ORCID</a>
+          <a class="btn primary" href="https://www.linkedin.com/in/vignonfideleadanvo/" target="_blank" rel="noopener"><svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M3.6 5.6h-2.4V14h2.4zM2.4 1.8a1.4 1.4 0 1 0 0 2.8 1.4 1.4 0 0 0 0-2.8zM14.8 9.3c0-2.2-1.2-3.9-3.4-3.9-1.1 0-1.9.6-2.2 1.2V5.6H6.8V14h2.4V9.8c0-1.1.2-2.2 1.6-2.2s1.5 1.3 1.5 2.3V14h2.5z"/></svg> LinkedIn</a>
+          <a class="btn" href="https://orcid.org/0000-0002-9266-6824" target="_blank" rel="noopener">ORCID</a>
           <a class="btn" href="http://lattes.cnpq.br/3804103919709510" target="_blank" rel="noopener">Lattes</a>
           <a class="btn" href="https://scholar.google.com/citations?hl=en&amp;user=TYPvBlkAAAAJ" target="_blank" rel="noopener">Scholar</a>
         </div>
@@ -440,60 +472,60 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
 // Idiomas
 (function(){
   const T={
-  en:{"nav.pub":"Publications","stat.pub":"Journal articles","pub.label":"// Publications","pub.h2":"Published articles","pub.sub":"Five journal articles, three of them in IEEE journals, and one conference paper.","pub.j":"Journal","pub.c":"Conference","pub.all":"See citations on Google Scholar","tl.1p":"Energy efficiency and reliability in IoT over LEO satellites with ALOHA techniques. FAPEMIG scholarship.","tl.3p":"Cooperative communication, cognitive radio, NOMA, buffer-aided relays and outage probability in B5G networks. CAPES scholarship.","tl.4p":"José Antonio Echeverría Higher Polytechnic Institute (CUJAE), Havana. Final project: SDR-based ground station for nanosatellites.","nav.res":"Research","nav.proj":"Projects","nav.eng":"Engineering","nav.tl":"Background","nav.ct":"Contact",
+  en:{"stat.ieee":"In IEEE journals","stat.ai":"Years in applied AI","proj.h2":"Applied machine learning","ct.copy":"Copy email","copied":"Copied","ct.p":"Publications and full CV on my academic profiles. I work in Portuguese, French and Spanish.","nav.pub":"Publications","stat.pub":"Journal articles","pub.label":"Publications","pub.h2":"Published articles","pub.sub":"Five journal articles, three of them in IEEE journals, and one conference paper.","pub.j":"Journal","pub.c":"Conference","pub.all":"See citations on Google Scholar","tl.1p":"Energy efficiency and reliability in IoT over LEO satellites with ALOHA techniques. FAPEMIG scholarship.","tl.3p":"Cooperative communication, cognitive radio, NOMA, buffer-aided relays and outage probability in B5G networks. CAPES scholarship.","tl.4p":"José Antonio Echeverría Higher Polytechnic Institute (CUJAE), Havana. Final project: SDR-based ground station for nanosatellites.","nav.res":"Research","nav.proj":"Projects","nav.eng":"Engineering","nav.tl":"Background","nav.ct":"Contact",
   "hero.lede":"Satellite communications researcher and AI engineer. I work between the mathematical model and the system in production.",
   "btn.lattes":"Lattes CV","stat.phd":"PhD","stat.ind":"AI in industry","stat.lang":"Languages",
-  "res.label":"// Research","res.h2":"Direct-to-satellite IoT","res.sub":"How thousands of simple devices can talk directly to low Earth orbit satellites, under real channels and limited resources.",
+  "res.label":"Research","res.h2":"Direct-to-satellite IoT","res.sub":"How thousands of simple devices can talk directly to low Earth orbit satellites, under real channels and limited resources.",
   "res.p1":"My PhD at Inatel, defended in 2026, studies DtS-IoT systems with slotted-ALOHA random access under Nakagami-m fading and Ali Abdi's channel model. The core of the work is multi-objective optimization: balancing throughput, coverage and reliability in LEO constellations modeled with real orbital data (Starlink TLE).",
   "res.p2":"This work produced the <strong>MCO-TOC / GSMT</strong> framework, which combines L-BFGS-B and golden-section search to tune system parameters. I also studied inter-satellite offloading strategies (ISC) and algorithms targeting energy efficiency and reliability.",
   "res.p3":"I am now extending the article to LEO pass scheduling at 2 GHz with machine learning, using a physics-informed proxy label, Ali Abdi's channel model and ionospheric scintillation per ITU-R P.531-16.",
   "res.co":"Co-authors:","par.h":"Parameters","par.1":"Medium access","par.2":"Fading","par.3":"Orbit","par.4":"Optimization","par.5":"Frequency (extension)","par.6":"Scintillation","par.7":"Peer review","par.7v":"wireless · 3GPP",
-  "proj.label":"// Projects","proj.h2":"From notebook to service","proj.sub":"ML projects applied to aerospace and telemetry.",
+  "proj.label":"Projects","proj.sub":"ML projects applied to aerospace and telemetry.",
   "uav.label":"Anomaly detection","uav.h3":"UAV telemetry","uav.p":"A system that flags anomalous behavior in drone flight data using Isolation Forest. Grid search over 108 configurations and real-time serving with FastAPI and WebSocket.","uav.prec":"Precision","uav.conf":"Configurations",
   "rt.label":"Computer vision","rt.p":"Aerospace waste sorting with computer vision, using a two-level taxonomy aimed at scrap from the São José dos Campos aerospace cluster. Data curated from Roboflow, Kaggle, Zenodo and IEEE DataPort.",
   "leo.label":"Satellites + ML","leo.h3":"LEO pass scheduling","leo.p":"A model that decides when it is worth communicating during a satellite pass, combining link physics and machine learning.","leo.tag":"Channel modeling",
-  "eng.label":"// Engineering","eng.h2":"AI in production","eng.sub":"Contact center automation and cloud AI solutions for enterprise clients.","eng.now":"2022 – present",
+  "eng.label":"Engineering","eng.h2":"AI in production","eng.sub":"Contact center automation and cloud AI solutions for enterprise clients.","eng.now":"2022 – present",
   "eng.h1":"Automated customer service","eng.h2b":"Production services","eng.h3":"Generative AI and data",
   "eng.li1":"Dialogflow CX agents integrated with CCaaS, Salesforce and ServiceNow","eng.li2":"Detection of abandoned calls and handoffs to human agents","eng.li3":"Ticket classification with Gemini in Virtual Agent","eng.li4":"Cloud Functions and Python services triggered by Pub/Sub","eng.li5":"Zero-downtime migrations with parallel Cloud Run services","eng.li6":"Containers in Artifact Registry and Streamlit apps","eng.li7":"RAG with Azure OpenAI and Vertex AI","eng.li8":"CI/CD with Azure DevOps","eng.li9":"Dashboards and apps in Power BI and Power Apps",
-  "tl.label":"// Education","tl.1h":"PhD · Inatel","tl.2p":"AI and automation consulting on GCP and Azure.","tl.3h":"MSc · Inatel","tl.4y":"BSc","tl.4h":"Telecommunications and Electronics Engineering · ISPJAE, Cuba",
-  "st.label":"// Tools","st.h2":"Stack and certifications","st.cloud":"Cloud","st.cert":"Certifications","st.opt":"Numerical optimization",
-  "ct.label":"// Contact","ct.h2":"Let's talk about research or applied AI","ct.p":"Publications and full CV on my academic profiles. Português · Français · Español."},
-  fr:{"nav.pub":"Publications","stat.pub":"Articles de revue","pub.label":"// Publications","pub.h2":"Articles publiés","pub.sub":"Cinq articles de revue, dont trois dans des revues IEEE, et une communication en conférence.","pub.j":"Revue","pub.c":"Conférence","pub.all":"Voir les citations sur Google Scholar","tl.1p":"Efficacité énergétique et fiabilité de l'IoT par satellites LEO avec des techniques ALOHA. Boursier FAPEMIG.","tl.3p":"Communication coopérative, radio cognitive, NOMA, relais avec buffer et probabilité de coupure dans les réseaux B5G. Boursier CAPES.","tl.4p":"Institut supérieur polytechnique José Antonio Echeverría (CUJAE), La Havane. Projet de fin d'études : station terrienne pour nanosatellites basée sur SDR.","nav.res":"Recherche","nav.proj":"Projets","nav.eng":"Ingénierie","nav.tl":"Parcours","nav.ct":"Contact",
+  "tl.label":"Education","tl.1h":"PhD · Inatel","tl.2p":"AI and automation consulting on GCP and Azure.","tl.3h":"MSc · Inatel","tl.4y":"BSc","tl.4h":"Telecommunications and Electronics Engineering · ISPJAE, Cuba",
+  "st.label":"Tools","st.h2":"Stack and certifications","st.cloud":"Cloud","st.cert":"Certifications","st.opt":"Numerical optimization",
+  "ct.label":"Contact","ct.h2":"Let's talk about research or applied AI"},
+  fr:{"stat.ieee":"Dans des revues IEEE","stat.ai":"Ans en IA appliquée","proj.h2":"Apprentissage automatique appliqué","ct.copy":"Copier l'e-mail","copied":"Copié","ct.p":"Publications et CV complet sur mes profils académiques. Je travaille en portugais, en français et en espagnol.","nav.pub":"Publications","stat.pub":"Articles de revue","pub.label":"Publications","pub.h2":"Articles publiés","pub.sub":"Cinq articles de revue, dont trois dans des revues IEEE, et une communication en conférence.","pub.j":"Revue","pub.c":"Conférence","pub.all":"Voir les citations sur Google Scholar","tl.1p":"Efficacité énergétique et fiabilité de l'IoT par satellites LEO avec des techniques ALOHA. Boursier FAPEMIG.","tl.3p":"Communication coopérative, radio cognitive, NOMA, relais avec buffer et probabilité de coupure dans les réseaux B5G. Boursier CAPES.","tl.4p":"Institut supérieur polytechnique José Antonio Echeverría (CUJAE), La Havane. Projet de fin d'études : station terrienne pour nanosatellites basée sur SDR.","nav.res":"Recherche","nav.proj":"Projets","nav.eng":"Ingénierie","nav.tl":"Parcours","nav.ct":"Contact",
   "hero.lede":"Chercheur en communications par satellite et ingénieur en IA. Je travaille entre le modèle mathématique et le système en production.",
   "btn.lattes":"CV Lattes","stat.phd":"Doctorat","stat.ind":"IA en entreprise","stat.lang":"Langues",
-  "res.label":"// Recherche","res.h2":"IoT directement vers le satellite","res.sub":"Comment des milliers d'objets simples peuvent communiquer directement avec des satellites en orbite basse, avec un canal réel et des ressources limitées.",
+  "res.label":"Recherche","res.h2":"IoT directement vers le satellite","res.sub":"Comment des milliers d'objets simples peuvent communiquer directement avec des satellites en orbite basse, avec un canal réel et des ressources limitées.",
   "res.p1":"Mon doctorat à l'Inatel, soutenu en 2026, étudie les systèmes DtS-IoT à accès aléatoire slotted-ALOHA sous évanouissement Nakagami-m et le modèle de canal d'Ali Abdi. Le cœur du travail est l'optimisation multiobjectif : équilibrer débit, couverture et fiabilité dans des constellations LEO modélisées avec des données orbitales réelles (TLE de Starlink).",
   "res.p2":"Ce travail a donné le framework <strong>MCO-TOC / GSMT</strong>, qui combine L-BFGS-B et la recherche par section dorée pour ajuster les paramètres du système. J'ai aussi étudié des stratégies de délestage entre satellites (ISC) et des algorithmes visant l'efficacité énergétique et la fiabilité.",
   "res.p3":"J'étends aujourd'hui l'article à l'ordonnancement des passages LEO à 2 GHz par apprentissage automatique, avec une étiquette proxy guidée par la physique, le modèle de canal d'Ali Abdi et la scintillation ionosphérique selon l'UIT-R P.531-16.",
   "res.co":"Coauteurs :","par.h":"Paramètres","par.1":"Accès au canal","par.2":"Évanouissement","par.3":"Orbite","par.4":"Optimisation","par.5":"Fréquence (extension)","par.6":"Scintillation","par.7":"Évaluation par les pairs","par.7v":"sans fil · 3GPP",
-  "proj.label":"// Projets","proj.h2":"Du notebook au service","proj.sub":"Projets de ML appliqués à l'aérospatial et à la télémétrie.",
+  "proj.label":"Projets","proj.sub":"Projets de ML appliqués à l'aérospatial et à la télémétrie.",
   "uav.label":"Détection d'anomalies","uav.h3":"Télémétrie de drones","uav.p":"Système qui repère les comportements anormaux dans les données de vol de drones avec Isolation Forest. Recherche en grille sur 108 configurations et service en temps réel avec FastAPI et WebSocket.","uav.prec":"Précision","uav.conf":"Configurations",
   "rt.label":"Vision par ordinateur","rt.p":"Tri des déchets aérospatiaux par vision par ordinateur, avec une taxonomie à deux niveaux destinée aux rebuts du pôle aérospatial de São José dos Campos. Données issues de Roboflow, Kaggle, Zenodo et IEEE DataPort.",
   "leo.label":"Satellites + ML","leo.h3":"Ordonnancement des passages LEO","leo.p":"Modèle qui décide quand il vaut la peine de communiquer pendant le passage d'un satellite, en combinant physique de la liaison et apprentissage automatique.","leo.tag":"Modélisation du canal",
-  "eng.label":"// Ingénierie","eng.h2":"L'IA en production","eng.sub":"Automatisation de centres de contact et solutions d'IA dans le cloud pour des entreprises.","eng.now":"2022 – aujourd'hui",
+  "eng.label":"Ingénierie","eng.h2":"L'IA en production","eng.sub":"Automatisation de centres de contact et solutions d'IA dans le cloud pour des entreprises.","eng.now":"2022 – aujourd'hui",
   "eng.h1":"Service client automatisé","eng.h2b":"Services en production","eng.h3":"IA générative et données",
   "eng.li1":"Agents Dialogflow CX intégrés au CCaaS, à Salesforce et à ServiceNow","eng.li2":"Détection des appels abandonnés et des transferts vers un humain","eng.li3":"Classification des tickets avec Gemini dans le Virtual Agent","eng.li4":"Cloud Functions et services Python déclenchés par Pub/Sub","eng.li5":"Migrations sans interruption avec Cloud Run en parallèle","eng.li6":"Conteneurs dans Artifact Registry et applications Streamlit","eng.li7":"RAG avec Azure OpenAI et Vertex AI","eng.li8":"CI/CD avec Azure DevOps","eng.li9":"Tableaux de bord et applications Power BI et Power Apps",
-  "tl.label":"// Formation","tl.1h":"Doctorat · Inatel","tl.2p":"Conseil en IA et automatisation sur GCP et Azure.","tl.3h":"Master · Inatel","tl.4y":"Licence","tl.4h":"Ingénierie en télécommunications et électronique · ISPJAE, Cuba",
-  "st.label":"// Outils","st.h2":"Stack et certifications","st.cloud":"Cloud","st.cert":"Certifications","st.opt":"Optimisation numérique",
-  "ct.label":"// Contact","ct.h2":"Parlons de recherche ou d'IA appliquée","ct.p":"Publications et CV complet sur mes profils académiques. Português · Français · Español."},
-  es:{"nav.pub":"Publicaciones","stat.pub":"Artículos en revistas","pub.label":"// Publicaciones","pub.h2":"Artículos publicados","pub.sub":"Cinco artículos en revistas, tres de ellos en revistas IEEE, y un trabajo en congreso.","pub.j":"Revista","pub.c":"Congreso","pub.all":"Ver citas en Google Scholar","tl.1p":"Eficiencia energética y confiabilidad en IoT mediante satélites LEO con técnicas ALOHA. Becario FAPEMIG.","tl.3p":"Comunicación cooperativa, radio cognitiva, NOMA, retransmisores con buffer y probabilidad de interrupción en redes B5G. Becario CAPES.","tl.4p":"Instituto Superior Politécnico José Antonio Echeverría (CUJAE), La Habana. Proyecto final: estación terrena para nanosatélites basada en SDR.","nav.res":"Investigación","nav.proj":"Proyectos","nav.eng":"Ingeniería","nav.tl":"Trayectoria","nav.ct":"Contacto",
+  "tl.label":"Formation","tl.1h":"Doctorat · Inatel","tl.2p":"Conseil en IA et automatisation sur GCP et Azure.","tl.3h":"Master · Inatel","tl.4y":"Licence","tl.4h":"Ingénierie en télécommunications et électronique · ISPJAE, Cuba",
+  "st.label":"Outils","st.h2":"Stack et certifications","st.cloud":"Cloud","st.cert":"Certifications","st.opt":"Optimisation numérique",
+  "ct.label":"Contact","ct.h2":"Parlons de recherche ou d'IA appliquée"},
+  es:{"stat.ieee":"En revistas IEEE","stat.ai":"Años en IA aplicada","proj.h2":"Aprendizaje automático aplicado","ct.copy":"Copiar e-mail","copied":"Copiado","ct.p":"Publicaciones y currículo completo en mis perfiles académicos. Trabajo en portugués, francés y español.","nav.pub":"Publicaciones","stat.pub":"Artículos en revistas","pub.label":"Publicaciones","pub.h2":"Artículos publicados","pub.sub":"Cinco artículos en revistas, tres de ellos en revistas IEEE, y un trabajo en congreso.","pub.j":"Revista","pub.c":"Congreso","pub.all":"Ver citas en Google Scholar","tl.1p":"Eficiencia energética y confiabilidad en IoT mediante satélites LEO con técnicas ALOHA. Becario FAPEMIG.","tl.3p":"Comunicación cooperativa, radio cognitiva, NOMA, retransmisores con buffer y probabilidad de interrupción en redes B5G. Becario CAPES.","tl.4p":"Instituto Superior Politécnico José Antonio Echeverría (CUJAE), La Habana. Proyecto final: estación terrena para nanosatélites basada en SDR.","nav.res":"Investigación","nav.proj":"Proyectos","nav.eng":"Ingeniería","nav.tl":"Trayectoria","nav.ct":"Contacto",
   "hero.lede":"Investigador en comunicaciones satelitales e ingeniero de IA. Trabajo entre el modelo matemático y el sistema en producción.",
   "btn.lattes":"Currículo Lattes","stat.phd":"Doctorado","stat.ind":"IA en la industria","stat.lang":"Idiomas",
-  "res.label":"// Investigación","res.h2":"IoT directo al satélite","res.sub":"Cómo miles de dispositivos simples pueden comunicarse directamente con satélites de órbita baja, con canal real y recursos limitados.",
+  "res.label":"Investigación","res.h2":"IoT directo al satélite","res.sub":"Cómo miles de dispositivos simples pueden comunicarse directamente con satélites de órbita baja, con canal real y recursos limitados.",
   "res.p1":"Mi doctorado en el Inatel, defendido en 2026, estudia sistemas DtS-IoT con acceso aleatorio slotted-ALOHA bajo desvanecimiento Nakagami-m y el modelo de canal de Ali Abdi. El núcleo del trabajo es la optimización multiobjetivo: equilibrar rendimiento, cobertura y confiabilidad en constelaciones LEO modeladas con datos orbitales reales (TLE de Starlink).",
   "res.p2":"De este trabajo surgió el framework <strong>MCO-TOC / GSMT</strong>, que combina L-BFGS-B y búsqueda por sección áurea para ajustar los parámetros del sistema. También estudié estrategias de offloading entre satélites (ISC) y algoritmos orientados a la eficiencia energética y la confiabilidad.",
   "res.p3":"Hoy extiendo el artículo a la planificación de pases LEO en 2 GHz con aprendizaje automático, usando una etiqueta proxy guiada por la física, el modelo de canal de Ali Abdi y el centelleo ionosférico según la UIT-R P.531-16.",
   "res.co":"Coautores:","par.h":"Parámetros","par.1":"Acceso al medio","par.2":"Desvanecimiento","par.3":"Órbita","par.4":"Optimización","par.5":"Frecuencia (extensión)","par.6":"Centelleo","par.7":"Revisión por pares","par.7v":"inalámbrico · 3GPP",
-  "proj.label":"// Proyectos","proj.h2":"Del notebook al servicio","proj.sub":"Proyectos de ML aplicados al sector aeroespacial y a la telemetría.",
+  "proj.label":"Proyectos","proj.sub":"Proyectos de ML aplicados al sector aeroespacial y a la telemetría.",
   "uav.label":"Detección de anomalías","uav.h3":"Telemetría de UAV","uav.p":"Sistema que identifica comportamientos anómalos en datos de vuelo de drones con Isolation Forest. Búsqueda en malla con 108 configuraciones y servicio en tiempo real con FastAPI y WebSocket.","uav.prec":"Precisión","uav.conf":"Configuraciones",
   "rt.label":"Visión por computadora","rt.p":"Clasificación de residuos aeroespaciales con visión por computadora, con una taxonomía de dos niveles orientada a la chatarra del polo de São José dos Campos. Datos curados de Roboflow, Kaggle, Zenodo e IEEE DataPort.",
   "leo.label":"Satélites + ML","leo.h3":"Planificación de pases LEO","leo.p":"Modelo que decide cuándo vale la pena comunicarse durante el pase de un satélite, combinando la física del enlace y el aprendizaje automático.","leo.tag":"Modelado de canal",
-  "eng.label":"// Ingeniería","eng.h2":"IA en producción","eng.sub":"Automatización de centros de contacto y soluciones de IA en la nube para clientes corporativos.","eng.now":"2022 – actual",
+  "eng.label":"Ingeniería","eng.h2":"IA en producción","eng.sub":"Automatización de centros de contacto y soluciones de IA en la nube para clientes corporativos.","eng.now":"2022 – actual",
   "eng.h1":"Atención automatizada","eng.h2b":"Servicios en producción","eng.h3":"IA generativa y datos",
   "eng.li1":"Agentes en Dialogflow CX integrados con CCaaS, Salesforce y ServiceNow","eng.li2":"Detección de llamadas abandonadas y de transferencias a un agente humano","eng.li3":"Clasificación de tickets con Gemini en el Virtual Agent","eng.li4":"Cloud Functions y servicios Python activados por Pub/Sub","eng.li5":"Migraciones sin interrupción con Cloud Run en paralelo","eng.li6":"Contenedores en Artifact Registry y apps en Streamlit","eng.li7":"RAG con Azure OpenAI y Vertex AI","eng.li8":"CI/CD con Azure DevOps","eng.li9":"Paneles y apps en Power BI y Power Apps",
-  "tl.label":"// Formación","tl.1h":"Doctorado · Inatel","tl.2p":"Consultoría en IA y automatización sobre GCP y Azure.","tl.3h":"Maestría · Inatel","tl.4y":"Grado","tl.4h":"Ingeniería en Telecomunicaciones y Electrónica · ISPJAE, Cuba",
-  "st.label":"// Herramientas","st.h2":"Stack y certificaciones","st.cloud":"Nube","st.cert":"Certificaciones","st.opt":"Optimización numérica",
-  "ct.label":"// Contacto","ct.h2":"Hablemos de investigación o IA aplicada","ct.p":"Publicaciones y currículo completo en mis perfiles académicos. Português · Français · Español."}
+  "tl.label":"Formación","tl.1h":"Doctorado · Inatel","tl.2p":"Consultoría en IA y automatización sobre GCP y Azure.","tl.3h":"Maestría · Inatel","tl.4y":"Grado","tl.4h":"Ingeniería en Telecomunicaciones y Electrónica · ISPJAE, Cuba",
+  "st.label":"Herramientas","st.h2":"Stack y certificaciones","st.cloud":"Nube","st.cert":"Certificaciones","st.opt":"Optimización numérica",
+  "ct.label":"Contacto","ct.h2":"Hablemos de investigación o IA aplicada"}
   };
   const els=[...document.querySelectorAll('[data-i]')];
   els.forEach(e=>e.dataset.pt=e.innerHTML);
@@ -510,6 +542,21 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
   try{start=localStorage.getItem('lang')||''}catch(e){start=''}
   if(!start){const n=(navigator.language||'pt').slice(0,2);start=T[n]?n:'pt'}
   if(start!=='pt') set(start);
+})();
+// Menu móvel
+(function(){
+  const b=document.querySelector('.menu-btn'),m=document.getElementById('menu');if(!b||!m)return;
+  b.addEventListener('click',()=>{const o=m.classList.toggle('open');b.setAttribute('aria-expanded',o)});
+  m.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{m.classList.remove('open');b.setAttribute('aria-expanded','false')}));
+})();
+// Copiar e-mail
+(function(){
+  const b=document.getElementById('copy'),e=document.getElementById('email');if(!b||!e)return;
+  b.addEventListener('click',()=>{
+    const done=()=>{const t=b.textContent;const L=document.documentElement.lang.slice(0,2);b.textContent={en:'Copied',fr:'Copié',es:'Copiado'}[L]||'Copiado';setTimeout(()=>b.textContent=t,1600)};
+    const sel=()=>{const r=document.createRange();r.selectNodeContents(e);const g=getSelection();g.removeAllRanges();g.addRange(r)};
+    try{navigator.clipboard.writeText('vfidelea@gmail.com').then(done,sel)}catch(x){sel()}
+  });
 })();
 // Destaca a seção atual no menu
 (function(){
